@@ -6,7 +6,7 @@ As well as an image to use for the photo-mosaic ([most common image formats are 
 
 Run the utility from the command line, as follows:
 
-<pre>python mosaic.py <image> <tiles directory>
+<pre>python mosaic.py &lt;image&gt; &lt;tiles directory&gt;
 </pre>
 
 *   The `image` argument should contain the path to the image for which you want to build the mosaic
