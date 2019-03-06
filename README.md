@@ -19,11 +19,11 @@ For example:
 
 The images below show an example of how the mosaic tiles are matched to the details of the original image:
 
-![Mosaic Image](http://codebox.org.uk/graphics/mosaic/mosaic_small.jpg)  
+![Mosaic Image](https://codebox.net/assets/images/mosaic/mosaic_small.jpg)  
 <span class="smallText">Original</span>
 
-[![Mosaic Image Detail](http://codebox.org.uk/graphics/mosaic/mosaic_detail.jpg)](http://codebox.org.uk/graphics/mosaic/mosaic_large.jpg)  
-<span class="smallText">Mosaic Detail (click through for [full mosaic](http://codebox.org.uk/graphics/mosaic/mosaic_large.jpg) ~15MB)</span>
+[![Mosaic Image Detail](https://codebox.net/assets/images/mosaic/mosaic_detail.jpg)](https://codebox.net/assets/images/mosaic/mosaic_large.jpg)  
+<span class="smallText">Mosaic Detail (click through for [full mosaic](https://codebox.net/assets/images/mosaic/mosaic_large.jpg) ~15MB)</span>
 
 Producing large, highly detailed mosaics can take some time - you should experiment with the various [configuration parameters](https://github.com/codebox/mosaic/blob/master/mosaic.py#L6) explained in the source code to find the right balance between image quality and render time.
 
