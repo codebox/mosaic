@@ -211,8 +211,8 @@ def compose(original_img, tiles):
 			work_queue.put((EOQ_VALUE, EOQ_VALUE))
 
 def mosaic(img_path, tiles_path):
-	tiles_data = TileProcessor(tiles_path).get_tiles()
 	image_data = TargetImage(img_path).get_data()
+	tiles_data = TileProcessor(tiles_path).get_tiles()
 	compose(image_data, tiles_data)
 
 if __name__ == '__main__':
