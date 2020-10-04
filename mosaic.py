@@ -1,6 +1,6 @@
 import sys
 import os
-from PIL import Image
+from PIL import Image, ImageOps
 from multiprocessing import Process, Queue, cpu_count
 
 # Change these 3 config parameters to suit your needs...
@@ -20,6 +20,8 @@ class TileProcessor:
 	def __process_tile(self, tile_path):
 		try:
 			img = Image.open(tile_path)
+			img = ImageOps.exif_transpose(img)
+
 			# tiles must be square, so get the largest square that fits inside the image
 			w = img.size[0]
 			h = img.size[1]
