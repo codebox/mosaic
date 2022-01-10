@@ -1,5 +1,5 @@
 import sys
-import os
+import os, os.path
 from PIL import Image, ImageOps
 from multiprocessing import Process, Queue, cpu_count
 
@@ -212,14 +212,27 @@ def compose(original_img, tiles):
 		for n in range(WORKER_COUNT):
 			work_queue.put((EOQ_VALUE, EOQ_VALUE))
 
+def show_error(msg):
+	print('ERROR: {}'.format(msg))
+
 def mosaic(img_path, tiles_path):
 	image_data = TargetImage(img_path).get_data()
 	tiles_data = TileProcessor(tiles_path).get_tiles()
-	compose(image_data, tiles_data)
+	if tiles_data[0]:
+		compose(image_data, tiles_data)
+	else:
+		show_error("No images found in tiles directory '{}'".format(tiles_path))
 
 if __name__ == '__main__':
 	if len(sys.argv) < 3:
-		print('Usage: {} <image> <tiles directory>\r'.format(sys.argv[0]))
+		show_error('Usage: {} <image> <tiles directory>\r'.format(sys.argv[0]))
 	else:
-		mosaic(sys.argv[1], sys.argv[2])
+		source_image = sys.argv[1]
+		tile_dir = sys.argv[2]
+		if not os.path.isfile(source_image):
+			show_error("Unable to find image file '{}'".format(source_image))
+		elif not os.path.isdir(tile_dir):
+			show_error("Unable to find tile directory '{}'".format(tile_dir))
+		else:
+			mosaic(source_image, tile_dir)
 
