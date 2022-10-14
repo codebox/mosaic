@@ -2,3 +2,5 @@
 ENV
 *.jpg
 *.jpeg
+/venv
+.DS_Store
